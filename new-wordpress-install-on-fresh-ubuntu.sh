@@ -4,7 +4,7 @@
 wordpress_db="test"
 wordpress_user="test_user"
 wordpress_password="test_password"
-virtualhost_name="test.raiyanitfarm.com"
+virtualhost_name="test.test.com"
 install_directory="/var/www/html/$virtualhost_name"
 
 # Update the package list
