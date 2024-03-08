@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Variables
-wordpress_db="test"
-wordpress_user="test_user"
-wordpress_password="test_password"
-virtualhost_name="test.test.com"
+wordpress_db="your_database_name"
+wordpress_user="your_database_user"
+wordpress_password="your_database_password"
+virtualhost_name="your_domain_name"
 install_directory="/var/www/html/$virtualhost_name"
 
 # Update the package list
