@@ -2,8 +2,8 @@
 
 # Variables
 wordpress_db="your_database_name"
-wordpress_user="your_database_user"
-wordpress_password="your_database_password"
+db_user="your_database_user"
+db_password="your_database_password"
 virtualhost_name="your_domain_name"
 install_directory="/var/www/html/$virtualhost_name"
 
@@ -19,7 +19,7 @@ sudo hostnamectl set-hostname $virtualhost_name
 sudo timedatectl set-timezone Asia/Dhaka
 
 # Install required packages
-sudo apt install -y fail2ban apache2 mariadb-server php7.4 libapache2-mod-php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-imagick php7.4-xml php7.4-zip redis-server php7.4-redis certbot python3-certbot-apache
+sudo apt install -y fail2ban apache2 mariadb-server php8.2 libapache2-mod-php8.2 php8.2-gd php8.2-mysql php8.2-curl php8.2-mbstring php8.2-intl php8.2-gmp php8.2-bcmath php8.2-imagick php8.2-xml php8.2-zip redis-server php8.2-redis certbot python3-certbot-apache
 
 # Configure ufw
 sudo ufw allow ssh
@@ -40,8 +40,8 @@ sudo chown -R www-data:www-data /var/www/html/$virtualhost_name
 
 # Create a MySQL database and user for WordPress
 sudo mariadb -e "CREATE DATABASE $wordpress_db;"
-sudo mariadb -e "CREATE USER '$wordpress_user'@'localhost' IDENTIFIED BY '$wordpress_password';"
-sudo mariadb -e "GRANT ALL PRIVILEGES ON $wordpress_db.* TO '$wordpress_user'@'localhost';"
+sudo mariadb -e "CREATE USER '$db_user'@'localhost' IDENTIFIED BY '$db_password';"
+sudo mariadb -e "GRANT ALL PRIVILEGES ON $wordpress_db.* TO '$db_user'@'localhost';"
 sudo mariadb -e "FLUSH PRIVILEGES;"
 
 # Download and extract WordPress
@@ -58,8 +58,8 @@ sudo chmod -R 755 "$install_directory"
 # Configure WordPress
 sudo mv "$install_directory/wp-config-sample.php" "$install_directory/wp-config.php"
 sudo sed -i 's/database_name_here/'$wordpress_db'/g' "$install_directory/wp-config.php"
-sudo sed -i 's/username_here/'$wordpress_user'/g' "$install_directory/wp-config.php"
-sudo sed -i 's/password_here/'$wordpress_password'/g' "$install_directory/wp-config.php"
+sudo sed -i 's/username_here/'$db_user'/g' "$install_directory/wp-config.php"
+sudo sed -i 's/password_here/'$db_password'/g' "$install_directory/wp-config.php"
 
 # Create Apache VirtualHost
 echo "

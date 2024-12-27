@@ -25,8 +25,8 @@ Edit the script variables in install_wordpress.sh according to your environment:
 
 ```bash
 wordpress_db="your_database_name"
-wordpress_user="your_database_user"
-wordpress_password="your_database_password"
+db_user="your_database_user"
+db_password="your_database_password"
 virtualhost_name="your_domain_name"
 ```
 Execute the script:
@@ -37,7 +37,7 @@ Execute the script:
 Follow the on-screen instructions to complete the installation. After the script finishes, you can access your WordPress site via your domain name.
 
 ### Important Notes
-* This script is optimized for PHP 7.4. Ensure that it meets your requirements before running the script.
+* This script is optimized for PHP 8.2. Ensure that it meets your requirements before running the script.
 * Make sure to configure fail2ban manually for enhanced security.
 * It's recommended to review the script and understand each step before running it in a production environment.
 * For any issues or questions, feel free to open an issue in this repository.
